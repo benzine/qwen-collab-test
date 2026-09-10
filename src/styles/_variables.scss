@@ -1,0 +1,70 @@
+// ==========================================================================
+// AutoParts Pro - Design Variables
+// ==========================================================================
+// Premium theme design language. All colors, typography, and motion
+// tokens are exposed as CSS custom properties so the Light/Dark engine
+// (see components/ThemeToggle.jsx) can swap palettes without re-render.
+// ==========================================================================
+
+// --------------------------------------------------------------------------
+// Brand palette
+// --------------------------------------------------------------------------
+$color-racing-red:   #DC2626; // Primary brand accent
+$color-obsidian:     #0A0A0A; // Dark mode base / deepest surface
+$color-charcoal:     #2D2D2D; // Dark mode surfaces & elevated cards
+$color-steel-grey:   #6B7280; // Muted text, borders, secondary UI
+$color-pure-white:   #FFFFFF; // Light mode base
+$color-off-white:    #F5F5F5; // Light mode surfaces
+$color-burnt-orange: #EA580C; // CTA / hot-badge accent
+
+// --------------------------------------------------------------------------
+// Typography
+// --------------------------------------------------------------------------
+$font-heading: 'Rajdhani', system-ui, sans-serif;     // Display / headings
+$font-body:    'Inter', system-ui, sans-serif;        // Body copy
+$font-mono:    'JetBrains Mono', ui-monospace, monospace; // Prices / SKUs
+
+// --------------------------------------------------------------------------
+// Motion
+// --------------------------------------------------------------------------
+$transition-theme: background-color 0.35s ease, color 0.35s ease;
+
+// ==========================================================================
+// Light mode (default :root)
+// ==========================================================================
+:root {
+  --appp-primary: #{$color-racing-red};
+  --appp-accent:  #{$color-burnt-orange};
+  --appp-bg:       #{$color-pure-white};
+  --appp-surface:  #{$color-off-white};
+  --appp-text:     #{$color-obsidian};
+  --appp-muted:    #{$color-steel-grey};
+  --appp-border:   #{$color-steel-grey};
+
+  --appp-font-heading: #{$font-heading};
+  --appp-font-body:    #{$font-body};
+  --appp-font-mono:    #{$font-mono};
+}
+
+// ==========================================================================
+// Dark mode (toggled via .dark-mode on <body>)
+// ==========================================================================
+.dark-mode {
+  --appp-primary: #{$color-racing-red};
+  --appp-accent:  #{$color-burnt-orange};
+  --appp-bg:       #{$color-obsidian};
+  --appp-surface:  #{$color-charcoal};
+  --appp-text:     #{$color-pure-white};
+  --appp-muted:    #{$color-steel-grey};
+  --appp-border:   #{$color-charcoal};
+}
+
+// ==========================================================================
+// Global theme transition
+// ==========================================================================
+// Ensures background-color and color cross-fade smoothly when the user
+// flips Light/Dark, so the switch feels premium rather than jarring.
+body,
+body * {
+  transition: #{$transition-theme};
+}
